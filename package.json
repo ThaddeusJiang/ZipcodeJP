@@ -1,0 +1,35 @@
+{
+  "name": "jp-post-api",
+  "version": "0.1.0",
+  "description": "A RESTful API for searching Japan Address by zip-code",
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThaddeusJiang/jp-post-api.git"
+  },
+  "keywords": [
+    "japan",
+    "post",
+    "zipcode",
+    "jp-code",
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
