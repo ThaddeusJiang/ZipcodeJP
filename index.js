@@ -18,7 +18,7 @@ apiRouter.get('/find', function (req, res) {
   if (q) {
     const data = findApi.find(q);
     if (data) {
-      res.json({ data });
+      res.json(data);
     } else {
       res.status(404).json({ error: 'record not found!' });
     }
