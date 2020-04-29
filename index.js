@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+var cors = require('cors');
+
 const PORT = process.env.PORT || 5000;
 
 const findApi = require('./apis/find');
@@ -26,6 +28,7 @@ apiRouter.get('/find', function (req, res) {
 });
 
 express()
+  .use(cors())
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
