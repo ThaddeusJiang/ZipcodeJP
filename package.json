@@ -4,8 +4,7 @@
   "description": "A RESTful API for searching Japan Address by Zipcode",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -36,11 +36,6 @@ yarn start
 ```
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Run tests
-
-```sh
-yarn test
-```
 
 ## Deploying to Heroku
 
