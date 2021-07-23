@@ -6,18 +6,56 @@
 </head>
 
 <body>
-  <h1>Japan Post</h1>
-  <p>A RESTful API for searching Japan Address by zip-code</p>
+  <h1>ZipcodeJP</h1>
+  <p>A RESTful API for searching Japan Address by Zipcode</p>
   <p>日本郵便番号検索API</p>
 
-  <button onclick="location.href='/api'">TRY API</button>
+  <h2>1. Try</h2>
+  <form action="/api/find" method="get">
+    <label>
+      <p>Zip-code:</p>
+      <input type="text" name="q" value="" placeholder="000-0000">
+    </label>
+    <p>
+      <button type="submit">Search</button>
+    </p>
+  </form>
 
+  <h2>2. Example Code</h2>
 
-  <h2>Usage Case</h2>
-  <iframe src="https://codesandbox.io/embed/japan-post-api-example-107u2?fontsize=14&hidenavigation=1&theme=dark"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="Japan Post API Example"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+  <script src="https://gist.github.com/ThaddeusJiang/31b6f130e75964996bb6a58a3a188ed7.js"></script>
+
+  <h2>3. API Documents</h2>
+
+  <p>Success</p>
+  <pre>
+    <code>
+      {
+        "data": {
+          "zipCode": "1080022",
+          "_province": "ﾄｳｷｮｳﾄ",
+          "_city": "ﾐﾅﾄｸ",
+          "_town": "ｶｲｶﾞﾝ(3ﾁｮｳﾒ)",
+          "province": "東京都",
+          "city": "港区",
+          "town": "海岸（３丁目）"
+        }
+      }
+    </code>
+  </pre>
+  <p>400 Bad Request</p>
+  <pre>
+  <code>
+      {"error":"q can not be empty!"}
+    </code>
+  </pre>
+  <p>400 Bad Request</p>
+  <pre>
+  <code>
+      {"error":"record not found!"}
+    </code>
+  </pre>
+
 
   <% include ../partials/footer.ejs %>
 </body>

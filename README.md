@@ -26,20 +26,20 @@ Download from [Japan Post](https://www.post.japanpost.jp/zipcode/dl/kogaki-zip.h
 ## Install
 
 ```sh
-yarn install
+yarn
 ```
 
 ## Usage
 
 ```sh
-yarn run start
+yarn start
 ```
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Run tests
 
 ```sh
-yarn run test
+yarn test
 ```
 
 ## Deploying to Heroku
