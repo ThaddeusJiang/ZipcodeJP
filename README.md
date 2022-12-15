@@ -1,22 +1,18 @@
-<h1 align="center">Welcome to jp-post-api 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <img src="https://img.shields.io/badge/node-12.x-blue.svg" />
-  <a href="https://github.com/ThaddeusJiang/jp-post-api#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://github.com/ThaddeusJiang/jp-post-api/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://github.com/ThaddeusJiang/jp-post-api/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/ThaddeusJiang/jp-post-api" />
-  </a>
-</p>
+# Welcome to zipcodejp 👋
 
-> A RESTful API for searching Japan Address by zip-code
-> (日本郵便番号検索API)
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/ThaddeusJiang/ZipcodeJP#readme)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ThaddeusJiang/ZipcodeJP/graphs/commit-activity)
+[![License: AGPL--3.0](https://img.shields.io/github/license/ThaddeusJiang/zipcodejp)](https://github.com/ThaddeusJiang/ZipcodeJP/blob/main/LICENSE)
+[![Twitter: ThaddeusJiang](https://img.shields.io/twitter/follow/ThaddeusJiang.svg?style=social)](https://twitter.com/ThaddeusJiang)
+
+> A RESTful API for searching Japan Address by Zipcode
+> (日本郵便番号検索 API)
+
+## [👉 Playground](https://zipcodejp.fly.dev)
 
 ## Data
+
 Download from [Japan Post](https://www.post.japanpost.jp/zipcode/dl/kogaki-zip.html)
 
 ## Prerequisites
@@ -34,24 +30,25 @@ yarn
 ```sh
 yarn start
 ```
+
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+## Deploying to Fly.io
 
-## Deploying to Heroku
+https://fly.io/docs/languages-and-frameworks/node/
 
 ```
-$ heroku create
-$ git push heroku master
-$ heroku ps:scale web=1
-$ heroku open
+$ flyctl launch
+$ flyctl deploy
+$ flyctl status
+$ flyctl open
 ```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Update Data
+
 1. download latest data from [Japan Post](https://www.post.japanpost.jp/zipcode/dl/kogaki-zip.html)
 2. run update-data script
+
 ```sh
 $ cd data
 $ node update-data.js
@@ -59,8 +56,11 @@ $ node update-data.js
 
 ## Author
 
-* Website: https://twitter.com/ThaddeusJiang
-* Github: [@ThaddeusJiang](https://github.com/ThaddeusJiang)
+👤 **ThaddeusJiang**
+
+- Website: https://thaddeusjiang.com/
+- Twitter: [@ThaddeusJiang](https://twitter.com/ThaddeusJiang)
+- Github: [@ThaddeusJiang](https://github.com/ThaddeusJiang)
 
 ## Show your support
 
@@ -68,7 +68,10 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/ThaddeusJiang/jp-post-api/blob/master/LICENSE) licensed.
+Copyright © 2022 [ThaddeusJiang](https://github.com/ThaddeusJiang).
 
-***
+This project is [AGPL--3.0](https://github.com/ThaddeusJiang/ZipcodeJP/blob/main/LICENSE) licensed.
+
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

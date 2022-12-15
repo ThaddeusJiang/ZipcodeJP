@@ -21,13 +21,12 @@
   },
   "keywords": [
     "Japan",
-    "post",
     "Postal Code",
     "Zipcode",
-    "node",
-    "heroku",
+    "Address",
+    "Node.js",
     "express",
     "API"
   ],
-  "license": "MIT"
+  "license": "AGPL-3.0"
 }
