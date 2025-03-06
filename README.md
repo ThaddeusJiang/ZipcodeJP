@@ -1,10 +1,10 @@
 # Welcome to zipcodejp 👋
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/github/package-json/v/thaddeusjiang/zipcodejp)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/ThaddeusJiang/ZipcodeJP#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ThaddeusJiang/ZipcodeJP/graphs/commit-activity)
 [![License: AGPL-3.0](https://img.shields.io/github/license/ThaddeusJiang/zipcodejp)](https://github.com/ThaddeusJiang/ZipcodeJP/blob/main/LICENSE)
-[![X: ThaddeusJiang](https://img.shields.io/x/follow/ThaddeusJiang.svg?style=social)](https://x.com/ThaddeusJiang)
+[![X: ThaddeusJiang](https://img.shields.io/twitter/follow/ThaddeusJiang.svg?style=social)](https://x.com/ThaddeusJiang)
 
 > A RESTful API for searching Japan Address by Zipcode
 > (日本郵便番号検索 API)
