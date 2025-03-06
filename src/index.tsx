@@ -76,7 +76,7 @@ export const Home = () => {
 
 
         <footer>
-          made with ❤️ by <a href="https://twitter.com/ThaddeusJiang" target="_blank"
+          made with ❤️ by <a href="https://x.com/ThaddeusJiang" target="_blank"
             rel="noopener noreferrer">@ThaddeusJiang</a> | <a href="https://github.com/ThaddeusJiang/ZipcodeJP"
               target="_blank" rel="noopener noreferrer">open source on GitHub</a>
         </footer>

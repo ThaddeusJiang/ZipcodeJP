@@ -3,7 +3,8 @@
   "version": "2.0.0-beta.1",
   "scripts": {
     "start": "bun run src/index.tsx",
-    "dev": "bun run --watch src/index.tsx"
+    "dev": "bun run --watch src/index.tsx",
+    "update-data": "bun run src/apis/data/update-data.ts"
   },
   "dependencies": {
     "hono": "^4.7.4"
@@ -20,8 +21,10 @@
     "Postal Code",
     "Zipcode",
     "Address",
+    "TypeScript",
+    "Bun",
+    "hono",
     "Node.js",
-    "express",
     "API"
   ],
   "license": "AGPL-3.0"
