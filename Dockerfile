@@ -1,5 +1,5 @@
 # 使用官方 Bun 镜像作为基础镜像
-FROM oven/bun:1.0.30-slim
+FROM --platform=$BUILDPLATFORM oven/bun:1.0.30-slim
 
 # 设置工作目录
 WORKDIR /app

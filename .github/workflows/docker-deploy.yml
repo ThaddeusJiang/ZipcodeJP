@@ -4,10 +4,11 @@ on:
   push:
     branches:
       - main
-
+      - prod
   pull_request:
     branches:
       - main
+      - prod
 
 env:
   IMAGE_NAME: thaddeusjiang/zipcodejp
@@ -19,6 +20,9 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
+
+      - name: 设置 QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: 设置 Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -33,16 +37,19 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:${{ github.ref_name }}
-
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build and push image for prod(:latest)
         if: github.ref == 'refs/heads/prod'
         uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:latest
