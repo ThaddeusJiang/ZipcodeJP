@@ -1,39 +1,20 @@
-# syntax = docker/dockerfile:1
+# 使用官方 Bun 镜像作为基础镜像
+FROM oven/bun:1.0.30-slim
 
-# Adjust NODE_VERSION as desired
-ARG NODE_VERSION=20.13.0
-FROM node:${NODE_VERSION}-slim as base
-
-LABEL fly_launch_runtime="Node.js"
-
-# Node.js app lives here
+# 设置工作目录
 WORKDIR /app
 
-# Set production environment
-ENV NODE_ENV="production"
+# 复制 package.json 和 bun.lock (如果存在)
+COPY package.json ./
 
+# 安装依赖
+RUN bun install
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
+# 复制源代码
+COPY . .
 
-# Install packages needed to build node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
-
-# Install node modules
-COPY --link package-lock.json package.json ./
-RUN npm ci
-
-# Copy application code
-COPY --link . .
-
-
-# Final stage for app image
-FROM base
-
-# Copy built application
-COPY --from=build /app /app
-
-# Start the server by default, this can be overwritten at runtime
+# 暴露端口
 EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+
+# 启动应用
+CMD ["bun", "start"]

@@ -2,3 +2,9 @@ Dockerfile
 .dockerignore
 node_modules
 .git
+.gitignore
+.env
+*.md
+!README.md
+.DS_Store
+npm-debug.log

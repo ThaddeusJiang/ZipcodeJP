@@ -1,20 +1,15 @@
 {
   "name": "zipcodejp",
-  "version": "0.1.0",
-  "description": "A RESTful API for searching Japan Address by Zipcode",
-  "main": "index.js",
+  "version": "2.0.0-beta.1",
   "scripts": {
-    "start": "node index.js"
+    "start": "bun run src/index.tsx",
+    "dev": "bun run --watch src/index.tsx"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "hono": "^4.7.4"
   },
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.7",
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "@types/bun": "latest"
   },
   "repository": {
     "type": "git",
