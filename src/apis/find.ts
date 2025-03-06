@@ -1,13 +1,9 @@
-const codes = require('../data/codes.json');
+import codes from "./data/codes.json"
 
-const find = (code) => {
+export const find = (code: string) => {
   if (code) {
     const result = codes[code.replace(/-/, '')];
     return result;
   }
   return null;
-};
-
-module.exports = {
-  find,
 };

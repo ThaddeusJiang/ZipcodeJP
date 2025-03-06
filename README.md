@@ -17,31 +17,26 @@ Download from [Japan Post](https://www.post.japanpost.jp/zipcode/dl/kogaki-zip.h
 
 ## Prerequisites
 
-- node 12.x
+
 
 ## Install
 
 ```sh
-yarn
+bun install
 ```
 
 ## Usage
 
 ```sh
-yarn start
+bun start
 ```
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-## Deploying to Fly.io
+## Deploying
 
-https://fly.io/docs/languages-and-frameworks/node/
-
-```
-$ flyctl launch
-$ flyctl deploy
-$ flyctl status
-$ flyctl open
+```sh
+docker run -p 3000:3000 zipcodejp
 ```
 
 ## Update Data
