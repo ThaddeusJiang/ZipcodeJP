@@ -9,7 +9,9 @@
 > A RESTful API for searching Japan Address by Zipcode
 > (日本郵便番号検索 API)
 
-## [👉 Playground](https://zipcodejp.fly.dev)
+## Playground
+
+👉 https://zipcodejp.zeabur.app/
 
 ## Data
 
