@@ -3,7 +3,7 @@ import { find } from './apis/find'
 
 const app = new Hono()
 
-export const Home = ({ origin }: { origin: string }) => {
+export const Home = () => {
   return (
     <html>
       <head>
@@ -30,8 +30,8 @@ export const Home = ({ origin }: { origin: string }) => {
         <h2>2. Usage</h2>
 
         <pre>
-          <code>
-            {`curl -X GET "${origin}/api/find?zipcode=1080022"`}
+          <code id="curl-example">
+            {`curl -X GET "/api/find?zipcode=1080022"`}
           </code>
         </pre>
 
@@ -82,14 +82,16 @@ export const Home = ({ origin }: { origin: string }) => {
         </footer>
       </body>
 
+      <script>
+        const url = window.location.origin + `/api/find?zipcode=1080022`;
+        document.getElementById(`curl-example`).textContent = `curl -X GET ` + url;
+      </script>
     </html>
   )
 }
 
 app.get('/', (c) => {
-  const url = new URL(c.req.url);
-
-  return c.html(<Home origin={url.origin} />)
+  return c.html(<Home />)
 })
 
 /**
