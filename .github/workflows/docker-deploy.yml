@@ -18,20 +18,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 检出代码
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 设置 QEMU
+      - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
 
-      - name: 设置 Docker Buildx
+      - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: 登录到 Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: thaddeusjiang
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Define Docker Tag
+        id: prep
+        run: |
+          # github.ref_name maybe `13/merge`
+          DOCKER_TAG=${GITHUB_REF_NAME//\//-}
+          echo "docker_tag=${DOCKER_TAG}" >> $GITHUB_OUTPUT
 
       - name: Build and push image
         uses: docker/build-push-action@v5
@@ -40,7 +47,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            ${{ env.IMAGE_NAME }}:${{ steps.prep.outputs.docker_tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
