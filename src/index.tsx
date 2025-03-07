@@ -3,7 +3,7 @@ import { find } from './apis/find'
 
 const app = new Hono()
 
-export const Home = () => {
+export const Home = ({ origin }: { origin: string }) => {
   return (
     <html>
       <head>
@@ -31,7 +31,7 @@ export const Home = () => {
 
         <pre>
           <code>
-            {`curl -X GET "/api/find?zipcode=123-4567"`}
+            {`curl -X GET "${origin}/api/find?zipcode=1080022"`}
           </code>
         </pre>
 
@@ -87,7 +87,9 @@ export const Home = () => {
 }
 
 app.get('/', (c) => {
-  return c.html(<Home />)
+  const url = new URL(c.req.url);
+
+  return c.html(<Home origin={url.origin} />)
 })
 
 /**
