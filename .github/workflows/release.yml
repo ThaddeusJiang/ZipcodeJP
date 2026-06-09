@@ -1,0 +1,55 @@
+# Publish Docker image when a GitHub release is published.
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      is_latest: ${{ steps.prepare.outputs.is_latest }}
+      version: ${{ steps.prepare.outputs.version }}
+    steps:
+      - name: Derive Docker metadata from release
+        id: prepare
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_ID: ${{ github.event.release.id }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          if [ -z "${RELEASE_TAG}" ]; then
+            echo "Release tag is empty"
+            exit 1
+          fi
+
+          latest_release_id="$(gh api "repos/${GITHUB_REPOSITORY}/releases/latest" --jq '.id' 2>/dev/null || true)"
+          is_latest=false
+
+          if [ -n "${latest_release_id}" ] && [ "${latest_release_id}" = "${RELEASE_ID}" ]; then
+            is_latest=true
+          fi
+
+          echo "is_latest=${is_latest}" >> "${GITHUB_OUTPUT}"
+          echo "version=${RELEASE_TAG}" >> "${GITHUB_OUTPUT}"
+
+  docker:
+    needs: prepare
+    uses: ./.github/workflows/docker-publish.yml
+    with:
+      is_latest: ${{ needs.prepare.outputs.is_latest == 'true' }}
+      version: ${{ needs.prepare.outputs.version }}
+    permissions:
+      contents: read
+      packages: write
+    secrets: inherit
